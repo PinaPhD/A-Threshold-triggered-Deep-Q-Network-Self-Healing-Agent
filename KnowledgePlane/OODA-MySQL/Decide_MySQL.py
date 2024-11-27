@@ -2,7 +2,7 @@
 '''
     Designing the offshore wind farm network topology using the spine-leaf network topology
     Author: Agrippina W. Mwangi
-    Created on: July/August 2024
+    Created on: August 2024
     DECIDE MODULE: Based on the insights from the Orient Module, this module 
     determines the most optimal path to reroute traffic given the external stochastic
     disruptions.
@@ -56,6 +56,11 @@ learning_rate = 0.001    # Model learning speed (controls how big of a step the 
 batch_size = 32          # Number of samples to use in a single training epoch
 memory_size = 2000       # Number of experiences to remember
 episodes = 1500          # Number of episodes for training
+
+
+#Creating the tunable parameters for the reward function
+a = 0.657  #Alpha
+b = 0.345  #Beta
 
 
 # Lists to store training statistics
@@ -155,9 +160,9 @@ class SelfHealingAgent:
             # Store the current epsilon value for tracking decay
             epsilon_list.append(self.agent.epsilon)
 
-    def take_action(self, action):
+    def take_action(self, action,u_t,l_t):
         next_state = np.random.rand(state_size)
-        reward = 1
+        reward = a.np.mean(u_t) + b.np.mean(l_t)   #Defining the reward function
         done = False
         return next_state, reward, done
 
@@ -202,8 +207,8 @@ if __name__ == "__main__":
     '''
     
     t_thr = np.arange(18, 27.001, 0.01)             # The nominal temperature operating range [ASHRAE,2016]
-    l_thr = 3                                       # Path latency threshold
-    u_thr = 0.8                                     # Link Utilization threshold
+    l_thr = 3                                       # Path latency threshold (in ms)
+    u_thr = 0.8                                     # Link Utilization threshold (in %)
     qos_sla_requirements = (l_thr, u_thr, t_thr)    # Latency (ms), utilization (%), and temperature (0C) thresholds respectively
     self_healing_agent = SelfHealingAgent(qos_sla_requirements)
         
@@ -213,7 +218,7 @@ if __name__ == "__main__":
     
     def get_current_state():
         u_t = float(exceeded_device_stats['utilization_percentage'])       # The link utilization (from OBSERVE Module)
-        l_t = np.random.uniform(0, 0.99, 78)                               # The path latency (from OBSERVE Module)
+        l_t = float(port_stats['links'])                               # The path latency (from OBSERVE Module)
         tau_t = temp_values                                                # The device temperature profiles
         return l_t, u_t, tau_t                                             # Fixed return variables
     
