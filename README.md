@@ -2,7 +2,7 @@
 
 
 ---
-![Self healing framework](https://github.com/PinaPhD/A-threshold-triggered-DQN-self-healing-framework/blob/main/Data/selfheal.png)
+![Self healing framework](https://github.com/PinaPhD/A-threshold-triggered-DQN-self-healing-framework/blob/main/Images/selfheal.png)
 ---
 
 ## Contributors
