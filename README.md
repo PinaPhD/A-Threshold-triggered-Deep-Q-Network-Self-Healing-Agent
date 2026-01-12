@@ -113,13 +113,17 @@ The knowledge plane's graphical abstract is as shown below:
 - Mwangi et al., (n.d.) _"Implementing self-healing autonomous software-defined IIoT-Edge networks in Offshore Wind Power Plants"_ submitted to IEEE Transactions on Network and Service Management (November, 2024).
 
 ```{bibliography}
-    @article{mwangi2025tnsm,
-    title="Implementing self-healing autonomous software-defined IIoT-Edge networks in Offshore Wind Power Plants",
-    journal="IEEE Transactions on Network and Service Management",
-    year="2025",
-    volume="",
-    issue="",
-    }
+    @ARTICLE{11313855,
+  author={Mwangi, Agrippina and Navarro-Hilfiker, León and Brewka, Lukasz and Gryning, Mikkel and Fumagalli, Elena and Gibescu, Madeleine},
+  journal={IEEE Transactions on Network and Service Management}, 
+  title={A Threshold-Triggered Deep Q-Network-Based Framework for Self-Healing in Autonomic Software-Defined IIoT-Edge Networks}, 
+  year={2026},
+  volume={23},
+  number={},
+  pages={1297-1311},
+  doi={10.1109/TNSM.2025.3647853}
+}
+
 ```
 
 - More studies from us and cite our work: [Reference list](https://github.com/PinaPhD/A-threshold-triggered-DQN-self-healing-framework/blob/main/References.md)
