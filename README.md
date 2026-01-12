@@ -1,4 +1,4 @@
-## Implementing self-healing autonomous software-defined OT networks in offshore wind power plants
+## Implementing a threshold-triggered self-healing framework in software-defined industrial networks: A case of offshore wind farms
 
 
 ---
